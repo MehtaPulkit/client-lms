@@ -13,7 +13,7 @@ export const createAccount = createAsyncThunk("/auth/signup", async (data) => {
     console.log("heelo")
     const loadingMessage = toast.loading("Please wait! creating your account...");
     try {
-        const res = await axiosInstance.post("http://localhost:5000/user/register", data);
+        const res = await axiosInstance.post("https://backend-lms-7ped.onrender.com/user/register", data);
         toast.success(res?.data?.message, { id: loadingMessage });
         return res?.data
     } catch (error) {
@@ -26,7 +26,7 @@ export const createAccount = createAsyncThunk("/auth/signup", async (data) => {
 export const login = createAsyncThunk("/auth/login", async (data) => {
     const loadingMessage = toast.loading("Please wait! logging into your account...");
     try {
-        const res = await axiosInstance.post("http://localhost:5000/user/login", data);
+        const res = await axiosInstance.post("https://backend-lms-7ped.onrender.com/user/login", data);
         toast.success(res?.data?.message, { id: loadingMessage });
         return res?.data
     } catch (error) {
@@ -39,7 +39,7 @@ export const login = createAsyncThunk("/auth/login", async (data) => {
 export const logout = createAsyncThunk("/auth/logout", async () => {
     const loadingMessage = toast.loading("logout...");
     try {
-        const res = await axiosInstance.get("http://localhost:5000/user/logout");
+        const res = await axiosInstance.get("https://backend-lms-7ped.onrender.com/user/logout");
         toast.success(res?.data?.message, { id: loadingMessage });
         return res?.data
     } catch (error) {

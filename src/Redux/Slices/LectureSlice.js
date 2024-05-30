@@ -10,7 +10,7 @@ const initialState = {
 export const getCourseLectures = createAsyncThunk("/courses/lecture/get", async (id) => {
     const loadingId = toast.loading("Fetching Lectures...");
     try {
-        const res = await axiosInstance.get(`http://localhost:5000/courses/${id}`);
+        const res = await axiosInstance.get(`https://backend-lms-7ped.onrender.com/courses/${id}`);
         toast.success("Lectures Fetching Successfully", { id: loadingId })
         return res?.data;
     } catch (error) {
@@ -23,7 +23,7 @@ export const getCourseLectures = createAsyncThunk("/courses/lecture/get", async 
 export const addCourseLecture = createAsyncThunk("/courses/lecture/add", async (data) => {
     const loadingId = toast.loading("Adding Lecture...");
     try {
-        const res = await axiosInstance.post(`http://localhost:5000/courses/${data.id}`, data.formData);
+        const res = await axiosInstance.post(`https://backend-lms-7ped.onrender.com/courses/${data.id}`, data.formData);
         toast.success("Lecture Added Successfully", { id: loadingId })
         return res?.data;
     } catch (error) {
@@ -37,7 +37,7 @@ export const deleteCourseLecture = createAsyncThunk("/courses/lecture/delete", a
     const loadingId = toast.loading("Deleting Lecture...");
     console.log(data);
     try {
-        const res = await axiosInstance.delete(`http://localhost:5000/courses?courseId=${data.courseId}&lectureId=${data.lectureId}`);
+        const res = await axiosInstance.delete(`https://backend-lms-7ped.onrender.com/courses?courseId=${data.courseId}&lectureId=${data.lectureId}`);
         toast.success("Lecture Deleted Successfully", { id: loadingId })
         return res?.data;
     } catch (error) {

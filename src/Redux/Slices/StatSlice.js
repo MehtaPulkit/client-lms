@@ -11,7 +11,7 @@ const initialState = {
 export const getStatsData = createAsyncThunk("stats/get", async () => {
     const loadingId = toast.loading("Getting the stats...")
     try {
-        const response = await axiosInstance.get("http://localhost:5000/admin/stats/users");
+        const response = await axiosInstance.get("https://backend-lms-7ped.onrender.com/admin/stats/users");
         toast.success(response?.data?.message, { id: loadingId });
         return response?.data;
     } catch (error) {
